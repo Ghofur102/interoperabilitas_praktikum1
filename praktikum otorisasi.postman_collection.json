@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "a523ce69-f0aa-4e56-929f-db97f26ff535",
+		"name": "praktikum otorisasi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29494787"
+	},
+	"item": [
+		{
+			"name": "register user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Ghofur\",\r\n    \"password\": \"Ghofur12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3100/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Admin\",\r\n    \"password\": \"Admin12345\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3100/auth/register-admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"auth",
+						"register-admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Ghofur\",\r\n    \"password\": \"Ghofur12345\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3100/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete director as admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmIkMTAkVlFzTFNmNFpjeVcuYUh4ckxudUdwLjRqVEh3a21IL2pQTDBkTVNoWjRQaHQuV3czVHE1T0ciLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNzY0MTQwNDIyLCJleHAiOjE3NjQxNDQwMjJ9.VWXh9-0qQvksjGEqCGlqwDSGIlHrE5eFqpsX0K_nxLo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Fana Lara\",\r\n    \"birthYear\": 2000\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3100/directors/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"directors",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -24,4 +24,21 @@ function authenticateToken(req, res, next) {
     });
 }
 
-module.exports = authenticateToken;
+// midlleware autoriasai 
+function authorizeRole(role) {
+    return (req, res, next) => {
+        // Middleware ini harus dijalankan setelah authenticateToken
+        if(req.user && req.user.role === role) {
+            next();
+        } else {
+            return res.status(403).json({
+                error: "Akses Dilarang: Peran tidak memadai"
+            });
+        }
+    }
+}
+
+module.exports = {
+    authenticateToken,
+    authorizeRole
+};
